@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "grappling_hook",
+  "version": "${version}",
+  "name": "Grappling Hook",
+  "description": "Server-side only grappling hook.",
+  "authors": [
+    "Mu_guang_138"
+  ],
+  "contact": {
+    "homepage": "https://example.com/",
+    "issues": "https://example.com/",
+    "sources": "https://example.com/"
+  },
+  "license": "GNU Lesser General Public License version 3 (LGPLv3)",
+  "environment": "*",
+  "entrypoints": {
+    "server": [
+      {
+        "adapter": "kotlin",
+        "value": "io.github.mg138.grapplinghook.Main"
+      }
+    ]
+  },
+  "mixins": [
+    "grappling_hook.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.5",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.7.0+kotlin.1.6.0",
+    "minecraft": "1.18.x",
+    "java": ">=16",
+    "polymer": "*"
+  }
+}
