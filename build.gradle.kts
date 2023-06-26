@@ -15,7 +15,8 @@ base {
 }
 
 val modVersion: String by project
-version = modVersion
+val minecraftVersion: String by project
+version = "$modVersion+$minecraftVersion"
 
 val mavenGroup: String by project
 group = mavenGroup
@@ -25,7 +26,6 @@ repositories {
 }
 
 dependencies {
-    val minecraftVersion: String by project
     minecraft("com.mojang:minecraft:$minecraftVersion")
 
     val yarnMappings: String by project
@@ -71,8 +71,8 @@ tasks {
     }
 
     processResources {
-        inputs.property("version", project.version)
-        filesMatching("fabric.mod.json") { expand(mutableMapOf("version" to project.version)) }
+        inputs.property("version", modVersion)
+        filesMatching("fabric.mod.json") { expand(mutableMapOf("version" to modVersion)) }
     }
 }
 
