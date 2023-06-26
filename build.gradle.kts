@@ -41,7 +41,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
 
     val polymerVersion: String by project
-    modImplementation("eu.pb4:polymer:$polymerVersion")
+    modImplementation("eu.pb4:polymer-core:$polymerVersion")
 }
 
 tasks {
@@ -53,8 +53,6 @@ tasks {
 
     withType<KotlinCompile> {
         kotlinOptions { jvmTarget = javaVersion.toString() }
-        sourceCompatibility = javaVersion.toString()
-        targetCompatibility = javaVersion.toString()
     }
 
     java {

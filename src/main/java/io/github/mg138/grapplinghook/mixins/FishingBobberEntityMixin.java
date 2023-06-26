@@ -1,6 +1,5 @@
 package io.github.mg138.grapplinghook.mixins;
 
-import io.github.mg138.grapplinghook.item.GrapplingHook;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FishingBobberEntity;
 import net.minecraft.item.FishingRodItem;

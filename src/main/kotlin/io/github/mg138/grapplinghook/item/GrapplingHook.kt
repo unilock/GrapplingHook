@@ -1,13 +1,15 @@
 package io.github.mg138.grapplinghook.item
 
-import eu.pb4.polymer.api.item.PolymerItem
+import eu.pb4.polymer.core.api.item.PolymerItem
 import io.github.mg138.grapplinghook.Main
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
-import net.minecraft.entity.MovementType
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.projectile.FishingBobberEntity
 import net.minecraft.item.*
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket
+import net.minecraft.registry.Registries
+import net.minecraft.registry.Registry
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.sound.SoundCategory
 import net.minecraft.sound.SoundEvents
@@ -15,14 +17,12 @@ import net.minecraft.util.Hand
 import net.minecraft.util.Identifier
 import net.minecraft.util.Rarity
 import net.minecraft.util.TypedActionResult
-import net.minecraft.util.registry.Registry
 import net.minecraft.world.World
 
 object GrapplingHook : FishingRodItem(
     FabricItemSettings()
         .maxCount(1)
         .rarity(Rarity.RARE)
-        .group(ItemGroup.TOOLS)
 ), PolymerItem {
     override fun getPolymerItem(itemStack: ItemStack?, player: ServerPlayerEntity?): Item = Items.FISHING_ROD
 
@@ -79,6 +79,10 @@ object GrapplingHook : FishingRodItem(
     }
 
     fun register() {
-        Registry.register(Registry.ITEM, Identifier(Main.modId, "grappling_hook"), this)
+        val grapplingHook = Registry.register(Registries.ITEM, Identifier(Main.modId, "grappling_hook"), this)
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register { entries ->
+            entries.add(grapplingHook)
+        }
     }
 }
