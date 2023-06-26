@@ -42,8 +42,6 @@ dependencies {
 
     val polymerVersion: String by project
     modImplementation("eu.pb4:polymer:$polymerVersion")
-
-    compileOnly(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 }
 
 tasks {
