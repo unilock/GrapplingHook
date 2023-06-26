@@ -15,7 +15,7 @@
   "license": "GNU Lesser General Public License version 3 (LGPLv3)",
   "environment": "*",
   "entrypoints": {
-    "server": [
+    "main": [
       {
         "adapter": "kotlin",
         "value": "io.github.mg138.grapplinghook.Main"
